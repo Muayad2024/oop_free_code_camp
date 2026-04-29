@@ -1,17 +1,25 @@
 class Circle:
     def __init__(self, radius):
-        self.radius = radius # Calling the setter
+        self.radius = radius
 
+    # Getter
     @property
-    def radius(self):  # A getter to get the radius
+    def radius(self):
         return self._radius
 
+    # Setter
     @radius.setter
-    def radius(self, value):  # A setter to set the radius
+    def radius(self, value):
         if value <= 0:
-            raise ValueError('Radius must be positive')
+            raise ValueError("Radius must be positive")
         self._radius = value
 
+    # Deleter
+    @radius.deleter
+    def radius(self):
+        print("Deleting radius...")
+        del self._radius
+        
 """we use the same function name for the setter and getter
  but if we assign it to value it become setter 
  and if we didin't do it become getter"""
